@@ -92,7 +92,7 @@ export const App = () => {
           Reverse
         </button>
 
-        {(reverse || sortField !== '') && (
+        {JSON.stringify(goodsList) !== JSON.stringify(goodsFromServer) && (
           <button
             type="button"
             className="button is-danger is-light"
