@@ -53,13 +53,25 @@ export const App = () => {
     setReverse(false);
   }
 
+  function handleSortByName() {
+    setSortField(SORT_FIELD_NAME);
+  }
+
+  function handleSortByLength() {
+    setSortField(SORT_FIELD_LENGTH);
+  }
+
+  function handleReverse() {
+    setReverse(prev => !prev);
+  }
+
   return (
     <div className="section content">
       <div className="buttons">
         <button
           type="button"
           className={`button is-info ${sortField !== SORT_FIELD_NAME ? 'is-light' : ''}`}
-          onClick={() => setSortField(SORT_FIELD_NAME)}
+          onClick={handleSortByName}
         >
           Sort alphabetically
         </button>
@@ -67,7 +79,7 @@ export const App = () => {
         <button
           type="button"
           className={`button is-success ${sortField !== SORT_FIELD_LENGTH ? 'is-light' : ''}`}
-          onClick={() => setSortField(SORT_FIELD_LENGTH)}
+          onClick={handleSortByLength}
         >
           Sort by length
         </button>
@@ -75,7 +87,7 @@ export const App = () => {
         <button
           type="button"
           className={`button is-warning ${!reverse ? 'is-light' : ''}`}
-          onClick={() => setReverse(!reverse)}
+          onClick={handleReverse}
         >
           Reverse
         </button>
